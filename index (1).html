@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medistim — Email Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #F3F3F3;
+      font-family: 'Roboto', sans-serif;
+      color: #303538;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background-color: #250801;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header img { height: 28px; display: block; }
+    .header-tag {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FF6600;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background-color: #250801;
+      padding: 48px 48px 44px;
+      border-bottom: 3px solid #FF6600;
+    }
+    .hero-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FF6600;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 15px;
+      font-weight: 300;
+      color: #96989B;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── PAGE ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      margin-top: 48px;
+    }
+    .section-header:first-child { margin-top: 0; }
+    .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #FF6600;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background-color: #e8e5e0;
+    }
+
+    /* ── CARD GRID ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .header { padding: 16px 24px; }
+      .hero { padding: 36px 24px; }
+      .page { padding: 32px 20px 60px; }
+    }
+
+    /* ── CARD ── */
+    .card {
+      background-color: #ffffff;
+      text-decoration: none;
+      display: block;
+      border-top: 3px solid #FF6600;
+      padding: 22px 20px 20px;
+      transition: box-shadow 0.15s ease;
+    }
+    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+
+    .card-type {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FF6600;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #250801;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: #96989B;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-date {
+      font-size: 11px;
+      color: #c8c5c0;
+      font-family: 'Roboto', sans-serif;
+    }
+    .card-arrow {
+      font-size: 16px;
+      color: #FF6600;
+      line-height: 1;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      background-color: #ffffff;
+      border: 1px dashed #e8e5e0;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .empty p {
+      font-size: 13px;
+      color: #c8c5c0;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background-color: #303538;
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer img { height: 20px; opacity: 0.4; }
+    .footer p {
+      font-size: 11px;
+      color: #5a6068;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="https://res.cloudinary.com/dranffioe/image/upload/v1780390215/Medistim_Logo_500_350x60px-Highres_un1zdg.png" alt="Medistim" />
+    <span class="header-tag">Email Archive</span>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Medistim Communications</p>
+    <h1>Email Archive</h1>
+    <p>All direct mails and distributor newsletters in one place. Click any card to open the full email in your browser.</p>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+
+    <!-- NEWSLETTERS -->
+    <div class="section-header">
+      <span class="section-label">Newsletters</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="card-grid">
+
+      <a class="card" href="/newsletters/medistim_newsletter_may2026.html">
+        <div class="card-type">Newsletter</div>
+        <div class="card-title">Medistim Inside News — May Edition</div>
+        <div class="card-desc">Publication highlight · Direct mail recap · ISO certificates · PATENT page · Charing Cross · New DASH structure · Upcoming congresses</div>
+        <div class="card-footer">
+          <span class="card-date">May 2026</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Future newsletters will go here -->
+
+    </div>
+
+    <!-- CARDIAC DIRECT MAILS -->
+    <div class="section-header">
+      <span class="section-label">Cardiac Direct Mails</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="card-grid">
+
+      <a class="card" href="/cardiac/medistim_gong_directmail_CC.html">
+        <div class="card-type">Cardiac · Case Report</div>
+        <div class="card-title">Flow Is Not Enough. Direction Matters.</div>
+        <div class="card-desc">Acute intraoperative CSSS during off-pump CABG — diagnosed in real time by TTFM using the Medistim MiraQ™.</div>
+        <div class="card-footer">
+          <span class="card-date">June 2026 · Gong et al.</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Future cardiac DMs will go here -->
+
+    </div>
+
+    <!-- VASCULAR DIRECT MAILS -->
+    <div class="section-header">
+      <span class="section-label">Vascular Direct Mails</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="card-grid">
+      <div class="empty">
+        <p>Vascular direct mails coming soon.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="https://res.cloudinary.com/dranffioe/image/upload/v1780390215/Medistim_Logo_500_350x60px-Highres_un1zdg.png" alt="Medistim" />
+    <p>© Medistim ASA · Okernveien 94, Oslo, Norway</p>
+  </footer>
+
+</body>
+</html>
