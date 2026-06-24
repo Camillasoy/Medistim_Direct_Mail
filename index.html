@@ -9,21 +9,26 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #F3F3F3;
       font-family: 'Roboto', sans-serif;
       color: #303538;
-      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     /* ── HEADER ── */
     .header {
       background-color: #250801;
-      padding: 18px 48px;
+      padding: 14px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-shrink: 0;
+      border-bottom: 3px solid #FF6600;
+      z-index: 10;
     }
-    .header img { height: 28px; display: block; }
+    .header img { height: 24px; display: block; }
     .header-tag {
       font-family: 'Poppins', sans-serif;
       font-size: 10px;
@@ -33,157 +38,175 @@
       color: #FF6600;
     }
 
-    /* ── HERO ── */
-    .hero {
+    /* ── MOBILE DROPDOWN ── */
+    .mobile-bar {
+      display: none;
+      background-color: #1a0500;
+      padding: 10px 16px;
+      flex-shrink: 0;
+    }
+    .mobile-select {
+      width: 100%;
       background-color: #250801;
-      padding: 48px 48px 44px;
-      border-bottom: 3px solid #FF6600;
-    }
-    .hero-eyebrow {
-      font-family: 'Poppins', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #FF6600;
-      margin-bottom: 14px;
-    }
-    .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 36px;
       color: #ffffff;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      border: 1px solid #FF6600;
+      border-radius: 3px;
+      padding: 10px 12px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23FF6600' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
     }
-    .hero p {
-      font-size: 15px;
-      font-weight: 300;
-      color: #96989B;
-      max-width: 520px;
-      line-height: 1.7;
-    }
+    .mobile-select:focus { outline: none; border-color: #FF6600; }
+    .mobile-select option { background-color: #250801; }
 
-    /* ── PAGE ── */
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 32px 80px;
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-header {
+    /* ── TWO-PANEL LAYOUT ── */
+    .archive-body {
       display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-      margin-top: 48px;
+      flex: 1;
+      overflow: hidden;
     }
-    .section-header:first-child { margin-top: 0; }
-    .section-label {
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      background-color: #1a0500;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: #1a0500; }
+    .sidebar::-webkit-scrollbar-thumb { background: #3a1505; border-radius: 2px; }
+
+    .sidebar-section {
+      padding: 20px 16px 8px;
+    }
+    .sidebar-section-label {
       font-family: 'Poppins', sans-serif;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #FF6600;
-    }
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background-color: #e8e5e0;
-    }
-
-    /* ── CARD GRID ── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 8px;
-    }
-
-    @media (max-width: 640px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .header { padding: 16px 24px; }
-      .hero { padding: 36px 24px; }
-      .page { padding: 32px 20px 60px; }
-    }
-
-    /* ── CARD ── */
-    .card {
-      background-color: #ffffff;
-      text-decoration: none;
+      padding: 0 4px 8px;
+      border-bottom: 1px solid #2e0a02;
+      margin-bottom: 4px;
       display: block;
-      border-top: 3px solid #FF6600;
-      padding: 22px 20px 20px;
-      transition: box-shadow 0.15s ease;
     }
-    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.10); }
 
-    .card-type {
+    .sidebar-item {
+      display: block;
+      padding: 10px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.12s ease;
+      border-left: 3px solid transparent;
+      margin-bottom: 2px;
+    }
+    .sidebar-item:hover {
+      background-color: #2e0a02;
+    }
+    .sidebar-item.active {
+      background-color: #2e0a02;
+      border-left-color: #FF6600;
+    }
+    .sidebar-item-date {
       font-family: 'Poppins', sans-serif;
       font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #FF6600;
-      margin-bottom: 10px;
-    }
-    .card-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
       font-weight: 600;
-      color: #250801;
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .card-desc {
-      font-size: 12px;
-      color: #96989B;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .card-date {
-      font-size: 11px;
-      color: #c8c5c0;
-      font-family: 'Roboto', sans-serif;
-    }
-    .card-arrow {
-      font-size: 16px;
+      letter-spacing: 0.14em;
       color: #FF6600;
-      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .sidebar-item-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #c8c5c0;
+      line-height: 1.4;
+    }
+    .sidebar-item.active .sidebar-item-title {
+      color: #ffffff;
+    }
+    .sidebar-item-tag {
+      font-size: 10px;
+      color: #5a4a42;
+      margin-top: 3px;
     }
 
-    /* ── EMPTY STATE ── */
-    .empty {
-      background-color: #ffffff;
-      border: 1px dashed #e8e5e0;
-      padding: 28px 24px;
-      text-align: center;
-    }
-    .empty p {
-      font-size: 13px;
-      color: #c8c5c0;
+    .sidebar-empty {
+      padding: 10px 12px;
+      font-size: 11px;
+      color: #3a2a22;
       font-style: italic;
     }
 
-    /* ── FOOTER ── */
-    .footer {
-      background-color: #303538;
-      padding: 22px 48px;
+    /* ── VIEWER ── */
+    .viewer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #F0EFED;
+    }
+
+    .viewer-topbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e8e5e0;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-shrink: 0;
     }
-    .footer img { height: 20px; opacity: 0.4; }
-    .footer p {
-      font-size: 11px;
-      color: #5a6068;
+    .viewer-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #250801;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 70%;
+    }
+    .viewer-open-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FF6600;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .viewer-open-link:hover { text-decoration: underline; }
+
+    .viewer iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      body { overflow: auto; height: auto; }
+      .archive-body { flex-direction: column; overflow: visible; }
+      .sidebar { display: none; }
+      .mobile-bar { display: block; }
+      .viewer {
+        height: 80vh;
+        overflow: hidden;
+      }
+      .viewer iframe { height: 100%; }
+      .header { padding: 12px 16px; }
     }
   </style>
 </head>
@@ -195,96 +218,107 @@
     <span class="header-tag">Email Archive</span>
   </header>
 
-  <!-- HERO -->
-  <div class="hero">
-    <p class="hero-eyebrow">Medistim Communications</p>
-    <h1>Email Archive</h1>
-    <p>All direct mails and distributor newsletters in one place. Click any card to open the full email in your browser.</p>
+  <!-- MOBILE DROPDOWN -->
+  <div class="mobile-bar">
+    <select class="mobile-select" id="mobileSelect" onchange="loadEmail(this.value, this.options[this.selectedIndex].text)">
+      <optgroup label="Newsletters">
+        <option value="/newsletters/medistim_newsletter_may2026.html">05/2026 — Inside News May Edition</option>
+        <option value="/newsletters/medistim_newsletter_february2026.html">02/2026 — Inside News February Edition</option>
+      </optgroup>
+      <optgroup label="Cardiac Direct Mails">
+        <option value="/cardiac/medistim_gong_directmail_CC.html">06/2026 — Flow Is Not Enough. Direction Matters.</option>
+        <option value="/cardiac/medistim_intramural_LAD_directmail_CC.html">04/2026 — What You Can't See Can Fail Your Graft.</option>
+      </optgroup>
+    </select>
   </div>
 
-  <!-- PAGE -->
-  <div class="page">
+  <!-- TWO-PANEL BODY -->
+  <div class="archive-body">
 
-    <!-- NEWSLETTERS -->
-    <div class="section-header">
-      <span class="section-label">Newsletters</span>
-      <div class="section-rule"></div>
-    </div>
-    <div class="card-grid">
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
 
-      <a class="card" href="/newsletters/medistim_newsletter_may2026.html" target="_blank" rel="noopener noreferrer">
-        <div class="card-type">05/2026</div>
-        <div class="card-title">Medistim Inside News — May Edition</div>
-        <div class="card-desc">Publication highlight · Direct mail recap · ISO certificates · PATENT page · Charing Cross · New DASH structure · Upcoming congresses</div>
-        <div class="card-footer">
-          <span class="card-date">Newsletter</span>
-          <span class="card-arrow">→</span>
-        </div>
-      </a>
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Newsletters</span>
 
-      <a class="card" href="/newsletters/medistim_newsletter_february2026.html" target="_blank" rel="noopener noreferrer">
-        <div class="card-type">02/2026</div>
-        <div class="card-title">Medistim Inside News — February Edition</div>
-        <div class="card-desc">CEO update · ISCAS webinar recording · Kidney transplant webinar · Cammertoni publication · Vascular materials · Kick-off meetings recap</div>
-        <div class="card-footer">
-          <span class="card-date">Newsletter</span>
-          <span class="card-arrow">→</span>
-        </div>
-      </a>
+        <a class="sidebar-item active"
+           data-url="/newsletters/medistim_newsletter_may2026.html"
+           data-title="Inside News — May 2026"
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">05/2026</div>
+          <div class="sidebar-item-title">Medistim Inside News — May Edition</div>
+          <div class="sidebar-item-tag">Newsletter</div>
+        </a>
 
-      <!-- Future newsletters will go here -->
-
-    </div>
-
-    <!-- CARDIAC DIRECT MAILS -->
-    <div class="section-header">
-      <span class="section-label">Cardiac Direct Mails</span>
-      <div class="section-rule"></div>
-    </div>
-    <div class="card-grid">
-
-      <a class="card" href="/cardiac/medistim_gong_directmail_CC.html" target="_blank" rel="noopener noreferrer">
-        <div class="card-type">06/2026</div>
-        <div class="card-title">Flow Is Not Enough. Direction Matters.</div>
-        <div class="card-desc">Acute intraoperative CSSS during off-pump CABG — diagnosed in real time by TTFM using the Medistim MiraQ™.</div>
-        <div class="card-footer">
-          <span class="card-date">Cardiac · Gong et al.</span>
-          <span class="card-arrow">→</span>
-        </div>
-      </a>
-
-      <a class="card" href="/cardiac/medistim_intramural_LAD_directmail_CC.html" target="_blank" rel="noopener noreferrer">
-        <div class="card-type">04/2026</div>
-        <div class="card-title">What You Can't See Can Fail Your Graft.</div>
-        <div class="card-desc">An intramural LAD at 6 mm depth — how HFUS localised the anastomotic site before incision and changed the surgical plan.</div>
-        <div class="card-footer">
-          <span class="card-date">Cardiac · Intramural LAD</span>
-          <span class="card-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- Future cardiac DMs will go here -->
-
-    </div>
-
-    <!-- VASCULAR DIRECT MAILS -->
-    <div class="section-header">
-      <span class="section-label">Vascular Direct Mails</span>
-      <div class="section-rule"></div>
-    </div>
-    <div class="card-grid">
-      <div class="empty">
-        <p>Vascular direct mails coming soon.</p>
+        <a class="sidebar-item"
+           data-url="/newsletters/medistim_newsletter_february2026.html"
+           data-title="Inside News — February 2026"
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">02/2026</div>
+          <div class="sidebar-item-title">Medistim Inside News — February Edition</div>
+          <div class="sidebar-item-tag">Newsletter</div>
+        </a>
       </div>
+
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Cardiac Direct Mails</span>
+
+        <a class="sidebar-item"
+           data-url="/cardiac/medistim_gong_directmail_CC.html"
+           data-title="Flow Is Not Enough. Direction Matters."
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">06/2026</div>
+          <div class="sidebar-item-title">Flow Is Not Enough. Direction Matters.</div>
+          <div class="sidebar-item-tag">Cardiac · Gong et al.</div>
+        </a>
+
+        <a class="sidebar-item"
+           data-url="/cardiac/medistim_intramural_LAD_directmail_CC.html"
+           data-title="What You Can't See Can Fail Your Graft."
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">04/2026</div>
+          <div class="sidebar-item-title">What You Can't See Can Fail Your Graft.</div>
+          <div class="sidebar-item-tag">Cardiac · Intramural LAD</div>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <span class="sidebar-section-label">Vascular Direct Mails</span>
+        <div class="sidebar-empty">Coming soon.</div>
+      </div>
+
+    </nav>
+
+    <!-- VIEWER -->
+    <div class="viewer">
+      <div class="viewer-topbar">
+        <span class="viewer-title" id="viewerTitle">Inside News — May 2026</span>
+        <a class="viewer-open-link" id="viewerLink" href="/newsletters/medistim_newsletter_may2026.html" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
+      </div>
+      <iframe id="emailFrame" src="/newsletters/medistim_newsletter_may2026.html" title="Email viewer"></iframe>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <img src="https://res.cloudinary.com/dranffioe/image/upload/v1780390215/Medistim_Logo_500_350x60px-Highres_un1zdg.png" alt="Medistim" />
-    <p>© Medistim ASA · Okernveien 94, Oslo, Norway</p>
-  </footer>
+  <script>
+    function selectItem(el) {
+      // Remove active from all
+      document.querySelectorAll('.sidebar-item').forEach(function(i) {
+        i.classList.remove('active');
+      });
+      el.classList.add('active');
+
+      var url = el.getAttribute('data-url');
+      var title = el.getAttribute('data-title');
+      loadEmail(url, title);
+    }
+
+    function loadEmail(url, title) {
+      document.getElementById('emailFrame').src = url;
+      document.getElementById('viewerTitle').textContent = title;
+      document.getElementById('viewerLink').href = url;
+    }
+  </script>
 
 </body>
 </html>
