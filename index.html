@@ -28,10 +28,10 @@
       border-bottom: 3px solid #FF6600;
       z-index: 10;
     }
-    .header img { height: 24px; display: block; }
+    .header img { height: 28px; display: block; }
     .header-tag {
       font-family: 'Poppins', sans-serif;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -42,18 +42,18 @@
     .mobile-bar {
       display: none;
       background-color: #FAF8F5;
-      padding: 12px 16px;
+      padding: 16px;
       flex-shrink: 0;
       border-bottom: 1px solid #e8e5e0;
     }
     .mobile-bar-label {
       font-family: 'Poppins', sans-serif;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #FF6600;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: block;
     }
     .mobile-select {
@@ -62,17 +62,63 @@
       color: #250801;
       border: 1px solid #e8e5e0;
       border-radius: 3px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       font-family: 'Roboto', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23FF6600' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 12px center;
+      background-position: right 14px center;
       cursor: pointer;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .mobile-select:focus { outline: none; border-color: #FF6600; }
+
+    /* ── MOBILE VIEWER ── */
+    .mobile-viewer {
+      display: none;
+      flex-direction: column;
+      background-color: #F0EFED;
+    }
+    .mobile-viewer-topbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e8e5e0;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .mobile-viewer-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #250801;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 65%;
+    }
+    .mobile-open-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FF6600;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: 1px solid #FF6600;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+    .mobile-viewer iframe {
+      width: 100%;
+      height: 65vh;
+      border: none;
+      display: block;
+    }
 
     /* ── TWO-PANEL LAYOUT ── */
     .archive-body {
@@ -97,32 +143,32 @@
 
     /* ── SIDEBAR SECTION ── */
     .sidebar-section {
-      padding: 24px 16px 8px;
+      padding: 24px 16px 12px;
     }
     .sidebar-section + .sidebar-section {
       border-top: 1px solid #e8e5e0;
     }
     .sidebar-section-label {
       font-family: 'Poppins', sans-serif;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #FF6600;
-      padding: 0 6px 10px;
+      padding: 0 6px 12px;
       display: block;
     }
 
     /* ── SIDEBAR ITEM ── */
     .sidebar-item {
       display: block;
-      padding: 12px 12px;
+      padding: 13px 12px;
       border-radius: 4px;
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.12s ease;
       border-left: 3px solid transparent;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .sidebar-item:hover {
       background-color: #f0ede8;
@@ -133,25 +179,25 @@
     }
     .sidebar-item-date {
       font-family: 'Poppins', sans-serif;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.14em;
       color: #FF6600;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .sidebar-item-title {
       font-family: 'Roboto', sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       color: #303538;
       line-height: 1.4;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
     .sidebar-item.active .sidebar-item-title {
       color: #250801;
     }
     .sidebar-item-tag {
-      font-size: 11px;
+      font-size: 12px;
       color: #96989B;
       margin-top: 2px;
     }
@@ -161,7 +207,7 @@
 
     .sidebar-empty {
       padding: 10px 12px;
-      font-size: 12px;
+      font-size: 13px;
       color: #c8c5c0;
       font-style: italic;
     }
@@ -178,7 +224,7 @@
     .viewer-topbar {
       background-color: #ffffff;
       border-bottom: 1px solid #e8e5e0;
-      padding: 10px 24px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -186,7 +232,7 @@
     }
     .viewer-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: #250801;
       white-space: nowrap;
@@ -196,7 +242,7 @@
     }
     .viewer-open-link {
       font-family: 'Poppins', sans-serif;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -217,12 +263,11 @@
     /* ── MOBILE ── */
     @media (max-width: 700px) {
       body { overflow: auto; height: auto; }
-      .archive-body { flex-direction: column; overflow: visible; }
-      .sidebar { display: none; }
+      .archive-body { display: none; }
       .mobile-bar { display: block; }
-      .viewer { height: 80vh; overflow: hidden; }
-      .viewer iframe { height: 100%; }
+      .mobile-viewer { display: flex; }
       .header { padding: 12px 16px; }
+      .header img { height: 22px; }
     }
   </style>
 </head>
@@ -234,35 +279,43 @@
     <span class="header-tag">Email Archive</span>
   </header>
 
-  <!-- MOBILE DROPDOWN -->
+  <!-- MOBILE DROPDOWNS -->
   <div class="mobile-bar">
     <span class="mobile-bar-label">Browse Medistim Insider</span>
-    <select class="mobile-select" id="mobileSelectInsider" onchange="loadEmail(this.value, this.options[this.selectedIndex].text)">
-      <option value="/newsletters/medistim_newsletter_july2026.html">07/2026 — Inside News July Edition (EMEA/APAC)</option>
-      <option value="/newsletters/medistim_newsletter_july2026_US.html">07/2026 — Inside News July Edition (US)</option>
+    <select class="mobile-select" onchange="loadMobile(this.value, this.options[this.selectedIndex].text)">
+      <option value="">— Select an edition —</option>
+      <option value="/newsletters/medistim_newsletter_july2026.html">07/2026 — Inside News July (EMEA/APAC)</option>
+      <option value="/newsletters/medistim_newsletter_july2026_US.html">07/2026 — Inside News July (US)</option>
       <option value="/newsletters/medistim_newsletter_may2026.html">05/2026 — Inside News May Edition</option>
       <option value="/newsletters/medistim_newsletter_february2026.html">02/2026 — Inside News February Edition</option>
       <option value="/software-updates/MiraQ_INTUI_software_update_June2026.html">06/2026 — MiraQ INTUI Software Update</option>
     </select>
 
-    <span class="mobile-bar-label" style="margin-top:10px;">Browse Direct Mail Archive</span>
-    <select class="mobile-select" id="mobileSelectDM" onchange="loadEmail(this.value, this.options[this.selectedIndex].text)">
+    <span class="mobile-bar-label" style="margin-top:12px;">Browse Direct Mail Archive</span>
+    <select class="mobile-select" onchange="loadMobile(this.value, this.options[this.selectedIndex].text)">
+      <option value="">— Select a direct mail —</option>
       <optgroup label="Cardiac">
         <option value="/cardiac/medistim_gong_directmail_CC.html">06/2026 — Flow Is Not Enough. Direction Matters.</option>
         <option value="/cardiac/medistim_intramural_LAD_directmail_CC.html">04/2026 — What You Can't See Can Fail Your Graft.</option>
       </optgroup>
-      <optgroup label="Vascular">
-      </optgroup>
     </select>
   </div>
 
-  <!-- TWO-PANEL BODY -->
+  <!-- MOBILE VIEWER -->
+  <div class="mobile-viewer" id="mobileViewer" style="display:none;">
+    <div class="mobile-viewer-topbar">
+      <span class="mobile-viewer-title" id="mobileViewerTitle"></span>
+      <a class="mobile-open-link" id="mobileOpenLink" href="#" target="_blank" rel="noopener noreferrer">Open ↗</a>
+    </div>
+    <iframe id="mobileFrame" src="" title="Email preview"></iframe>
+  </div>
+
+  <!-- TWO-PANEL BODY (desktop) -->
   <div class="archive-body">
 
     <!-- SIDEBAR -->
     <nav class="sidebar">
 
-      <!-- MEDISTIM INSIDER -->
       <div class="sidebar-section">
         <span class="sidebar-section-label">Browse Medistim Insider</span>
 
@@ -312,7 +365,6 @@
         </a>
       </div>
 
-      <!-- DIRECT MAIL ARCHIVE -->
       <div class="sidebar-section">
         <span class="sidebar-section-label">Browse Direct Mail Archive</span>
 
@@ -365,6 +417,16 @@
       document.getElementById('emailFrame').src = url;
       document.getElementById('viewerTitle').textContent = title;
       document.getElementById('viewerLink').href = url;
+    }
+
+    function loadMobile(url, title) {
+      if (!url) return;
+      var viewer = document.getElementById('mobileViewer');
+      viewer.style.display = 'flex';
+      document.getElementById('mobileFrame').src = url;
+      document.getElementById('mobileViewerTitle').textContent = title;
+      document.getElementById('mobileOpenLink').href = url;
+      viewer.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
