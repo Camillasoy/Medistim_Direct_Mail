@@ -222,6 +222,8 @@
   <div class="mobile-bar">
     <select class="mobile-select" id="mobileSelect" onchange="loadEmail(this.value, this.options[this.selectedIndex].text)">
       <optgroup label="Newsletters">
+        <option value="/newsletters/medistim_newsletter_july2026.html">07/2026 — Inside News July Edition (EMEA/APAC)</option>
+        <option value="/newsletters/medistim_newsletter_july2026_US.html">07/2026 — Inside News July Edition (US)</option>
         <option value="/newsletters/medistim_newsletter_may2026.html">05/2026 — Inside News May Edition</option>
         <option value="/newsletters/medistim_newsletter_february2026.html">02/2026 — Inside News February Edition</option>
       </optgroup>
@@ -245,6 +247,24 @@
         <span class="sidebar-section-label">Newsletters</span>
 
         <a class="sidebar-item active"
+           data-url="/newsletters/medistim_newsletter_july2026.html"
+           data-title="Inside News — July 2026 (EMEA/APAC)"
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">07/2026</div>
+          <div class="sidebar-item-title">Medistim Inside News — July Edition (EMEA/APAC)</div>
+          <div class="sidebar-item-tag">Newsletter</div>
+        </a>
+
+        <a class="sidebar-item"
+           data-url="/newsletters/medistim_newsletter_july2026_US.html"
+           data-title="Inside News — July 2026 (US)"
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">07/2026</div>
+          <div class="sidebar-item-title">Medistim Inside News — July Edition (US)</div>
+          <div class="sidebar-item-tag">Newsletter</div>
+        </a>
+
+        <a class="sidebar-item"
            data-url="/newsletters/medistim_newsletter_may2026.html"
            data-title="Inside News — May 2026"
            onclick="selectItem(this); return false;" href="#">
@@ -308,10 +328,10 @@
     <!-- VIEWER -->
     <div class="viewer">
       <div class="viewer-topbar">
-        <span class="viewer-title" id="viewerTitle">Inside News — May 2026</span>
-        <a class="viewer-open-link" id="viewerLink" href="/newsletters/medistim_newsletter_may2026.html" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
+        <span class="viewer-title" id="viewerTitle">Inside News — July 2026 (EMEA/APAC)</span>
+        <a class="viewer-open-link" id="viewerLink" href="/newsletters/medistim_newsletter_july2026.html" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
       </div>
-      <iframe id="emailFrame" src="/newsletters/medistim_newsletter_may2026.html" title="Email viewer"></iframe>
+      <iframe id="emailFrame" src="/newsletters/medistim_newsletter_july2026.html" title="Email viewer"></iframe>
     </div>
 
   </div>
