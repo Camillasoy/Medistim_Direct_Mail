@@ -284,6 +284,7 @@
     <span class="mobile-bar-label">Browse Medistim Insider</span>
     <select class="mobile-select" onchange="loadMobile(this.value, this.options[this.selectedIndex].text)">
       <option value="">— Select an edition —</option>
+      <option value="/newsletters/medistim_newsletter_september2026.html">09/2026 — Inside News September Edition</option>
       <option value="/newsletters/medistim_newsletter_july2026.html">07/2026 — Inside News July (EMEA/APAC)</option>
       <option value="/newsletters/medistim_newsletter_july2026_US.html">07/2026 — Inside News July (US)</option>
       <option value="/software-updates/MiraQ_INTUI_software_update_June2026.html">06/2026 — MiraQ INTUI Software Update</option>
@@ -320,6 +321,15 @@
         <span class="sidebar-section-label">Browse Medistim Insider</span>
 
         <a class="sidebar-item active"
+           data-url="/newsletters/medistim_newsletter_september2026.html"
+           data-title="Inside News — September 2026"
+           onclick="selectItem(this); return false;" href="#">
+          <div class="sidebar-item-date">09/2026</div>
+          <div class="sidebar-item-title">Medistim Inside News — September Edition</div>
+          <div class="sidebar-item-tag">Newsletter</div>
+        </a>
+
+        <a class="sidebar-item"
            data-url="/newsletters/medistim_newsletter_july2026.html"
            data-title="Inside News — July 2026 (EMEA/APAC)"
            onclick="selectItem(this); return false;" href="#">
@@ -395,10 +405,10 @@
     <!-- VIEWER -->
     <div class="viewer">
       <div class="viewer-topbar">
-        <span class="viewer-title" id="viewerTitle">Inside News — July 2026 (EMEA/APAC)</span>
-        <a class="viewer-open-link" id="viewerLink" href="/newsletters/medistim_newsletter_july2026.html" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
+        <span class="viewer-title" id="viewerTitle">Inside News — September 2026</span>
+        <a class="viewer-open-link" id="viewerLink" href="/newsletters/medistim_newsletter_september2026.html" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
       </div>
-      <iframe id="emailFrame" src="/newsletters/medistim_newsletter_july2026.html" title="Email viewer"></iframe>
+      <iframe id="emailFrame" src="/newsletters/medistim_newsletter_september2026.html" title="Email viewer"></iframe>
     </div>
 
   </div>
